@@ -3,7 +3,7 @@ var testSlider;
 var slider2;
 testSlider = d3.select('div#slider-test').append('svg').attr('width', 80).attr('height', 350).attr("class", "svg-box").append('g').attr('transform', 'translate(5,-15)').attr("class", "slider-svg").attr("id", "slider-svg");
 // .attr("class", "slider-container");
-slider2 = d3.sliderLeft().min(0).max(550).height(300).ticks(5).default([0, 550]).fill('#55585C').on('onchange', val => {
+slider2 = d3.sliderLeft().min(0).max(550).height(200).ticks(5).default([0, 550]).fill('#55585C').on('onchange', val => {
   // d3.select('p#value-range').text(val);
   // console.log(val);
 });

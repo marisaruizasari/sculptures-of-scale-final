@@ -258,6 +258,12 @@
     }
 }
 
+@media (max-width: 600px) {
+  #compare-images {
+    width: 95%;
+  }
+}
+
 .wrap {
   display: flex;
   flex-direction: row;

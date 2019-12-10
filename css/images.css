@@ -167,6 +167,7 @@
     #slider-test {
         /* top: 310px; */
         position: fixed;
+        margin-top: 80px;
     }
     .sculpture-img{
       width: 130px;
@@ -180,6 +181,10 @@
     } */
     .card {
       width: 93%;
+    }
+    .svg-box {
+      padding-top: 0;
+      margin-left: 10px;
     }
 }
 
@@ -252,4 +257,14 @@
 .met-btn {
     background-color: #D7D9DB;
     color: #696A6B;
+}
+
+@media (max-width: 600px) {
+  .card {
+    transform: scale(0.8,0.8)
+    margin-top: -40px;
+  }
+  .wrapper {
+    padding-top: 40px;
+  }
 }
