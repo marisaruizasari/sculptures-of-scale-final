@@ -141,6 +141,7 @@
     margin-bottom: 0px;
     padding-top: 10px;
     padding-left: 20px;
+    z-index: -1;
 }
 
 .images-container {
@@ -236,6 +237,7 @@
     /*display: flex;*/
     /*flex-direction: row;*/
     /*flex-wrap: wrap;*/
+    z-index: 99999999999999999999;
 }
 
 .hide-button {
