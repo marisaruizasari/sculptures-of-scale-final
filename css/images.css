@@ -141,7 +141,7 @@
     margin-bottom: 0px;
     padding-top: 10px;
     padding-left: 20px;
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 .images-container {
