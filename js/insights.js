@@ -2,7 +2,7 @@
 // range slider for heights ----------------------------------------------->
 var testSlider;
 var slider2;
-testSlider = d3.select('div#slider-test').append('svg').attr('width', 80).attr('height', 350).attr("class", "svg-box").append('g').attr('transform', 'translate(5,-15)').attr("class", "slider-svg").attr("id", "slider-svg");
+testSlider = d3.select('div#slider-test').append('svg').attr('width', 80).attr('height', 400).attr("class", "svg-box").append('g').attr('transform', 'translate(5,-15)').attr("class", "slider-svg").attr("id", "slider-svg");
 // .attr("class", "slider-container");
 slider2 = d3.sliderLeft().min(0).max(550).height(300).ticks(5).default([0, 550]).fill('#55585C').on('onchange', val => {
   d3.select('p#value-range').text(val);
@@ -14,41 +14,60 @@ var svgDiv;
 var sliderDiv;
 var tickText;
 
-function myFunction(x) {
-  if (x.matches) { // If media query matches
-    svgDiv = document.querySelector(".svg-box");
-    sliderDiv = document.querySelector("#slider-test")
-    tickText = document.querySelectorAll(".svg-box g.tick text");
-    // console.log(tickText);
-    // label = svgDiv.contentDocument.getElementsByTagName("G")
-    // div.setAttribute('transform', 'rotate(90deg)');
-    svgDiv.style.transform = "rotate(90deg)";
-    svgDiv.style.transform += "translate(-150px,-150px)";
-    sliderDiv.style.width = "100%";
-    sliderDiv.style.height = "200px";
-    for (var x = 0; x < tickText.length; x++) {
-      tickText[x].style.transform = "rotate(-90deg) translate(28px, -25px)"
-    }
-    mobile = "on"
-  }
-  else {
-    svgDiv = document.querySelector(".svg-box");
-    sliderDiv = document.querySelector("#slider-test")
-    tickText = document.querySelectorAll(".svg-box g.tick text");
-    if (mobile == "on") {
-      svgDiv.style.transform = "rotate(0deg)";
-      sliderDiv.style.width = "200px";
-      sliderDiv.style.height = "650px";
-      for (var x = 0; x < tickText.length; x++) {
-        tickText[x].style.transform = "rotate(0deg) translate(0px, 0px)"
-      }
-      // mobile = "off";
-    }
-  }
-}
-var x = window.matchMedia("(max-width: 990px)")
-myFunction(x) // Call listener function at run time
-x.addListener(myFunction) // Attach listener function on state changes
+
+// svgDiv = document.querySelector(".svg-box");
+// sliderDiv = document.querySelector("#slider-test")
+// tickText = document.querySelectorAll(".svg-box g.tick text");
+// svgDiv.style.transform = "rotate(0deg)";
+// sliderDiv.style.width = "150px";
+// sliderDiv.style.height = "550px";
+// for (var x = 0; x < tickText.length; x++) {
+//   tickText[x].style.transform = "rotate(0deg) translate(0px, 0px)"
+// }
+
+// svgDiv = document.querySelector(".svg-box");
+// sliderDiv = document.querySelector("#slider-test")
+// tickText = document.querySelectorAll(".svg-box g.tick text");
+// sliderDiv.style.width = "200px";
+// sliderDiv.style.height = "650px";
+
+
+
+// function myFunction(x) {
+//   if (x.matches) { // If media query matches
+//     svgDiv = document.querySelector(".svg-box");
+//     sliderDiv = document.querySelector("#slider-test")
+//     tickText = document.querySelectorAll(".svg-box g.tick text");
+//     // console.log(tickText);
+//     // label = svgDiv.contentDocument.getElementsByTagName("G")
+//     // div.setAttribute('transform', 'rotate(90deg)');
+//     svgDiv.style.transform = "rotate(90deg)";
+//     svgDiv.style.transform += "translate(-150px,-150px)";
+//     sliderDiv.style.width = "100%";
+//     sliderDiv.style.height = "200px";
+//     for (var x = 0; x < tickText.length; x++) {
+//       tickText[x].style.transform = "rotate(-90deg) translate(28px, -25px)"
+//     }
+//     mobile = "on"
+//   }
+//   else {
+//     svgDiv = document.querySelector(".svg-box");
+//     sliderDiv = document.querySelector("#slider-test")
+//     tickText = document.querySelectorAll(".svg-box g.tick text");
+//     if (mobile == "on") {
+//       svgDiv.style.transform = "rotate(0deg)";
+//       sliderDiv.style.width = "200px";
+//       sliderDiv.style.height = "650px";
+//       for (var x = 0; x < tickText.length; x++) {
+//         tickText[x].style.transform = "rotate(0deg) translate(0px, 0px)"
+//       }
+//       // mobile = "off";
+//     }
+//   }
+// }
+// var x = window.matchMedia("(max-width: 990px)")
+// myFunction(x) // Call listener function at run time
+// x.addListener(myFunction) // Attach listener function on state changes
 d3.select('p#value-range').html(`<strong>Current Selection:</strong> <br> ${slider2.value().join('-')} centimeters<br><p class="in-ft">(0–${parseFloat(550*0.393701).toFixed(1)} inches)</p><br><p class="in-ft">(0–${parseFloat(550*0.0328084).toFixed(1)} feet)</p>`);
 //bar chart function ----------------------------------------------->
 var svgWidth = 500;

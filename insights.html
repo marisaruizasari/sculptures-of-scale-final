@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/main.css"> </head>
 
   <body>
+    <!-- <img src="images/swipe.png" class="swipe" alt=""> -->
     <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
       <!--<p class="met">THE<br>MET</p>--><a class="navbar-brand site-title" href="index.html">Sculptures of Scale</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,8 +25,7 @@
         </ul>
       </div>
     </nav>
-    <div class="container">
-      <div class="explore item" id="explore">
+    <div class="container wrap">
         <!--<div class="explore-title"><strong>Explore:</strong> Sculpture&nbsp;Height&nbsp;&&nbsp;Materials</div>-->
         <div id="slider-test">
           <div class="slider-test-line-1">
@@ -49,15 +49,17 @@
             <p class="legend-all-caps">Legend:</p>
             <p class="legend-lowercase">Sculpture Materials<br> and Counts</p>
           </div>
-          <div id="legendSquares"></div>
-          <div id="legend"></div>
+          <div class="legend-squares-cont">
+            <div id="legendSquares"></div>
+            <div id="legend"></div>
+          </div>
         </div>
         <div class="spacer-2"></div>
         <div class="explore-images-container">
           <div id="explore-images-title"></div>
           <div class="explore-images" id="explore-images"></div>
         </div>
-      </div>
+        <img src="images/swipe.png" class="swipe" alt="">
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
