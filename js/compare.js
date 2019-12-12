@@ -192,6 +192,8 @@ function filterSculptures() {
   renderEachImage(rangedSculptures, "sculpture-img", "#images")
 }
 
+
+
 function renderImage(src, width, alt, className, parentElement) {
   var img = document.createElement("img");
   img.src = src;
@@ -230,6 +232,7 @@ function filterAndRender() {
 }
 filterAndRender();
 var compareArray = [];
+var maxHeight = 0;
 
 function addToCompareArray(img) {
   if (compareArray.length < 3) {
@@ -237,6 +240,10 @@ function addToCompareArray(img) {
     imagesArray.forEach(sculpture => {
       if (sculpture.fileName.match(img.src.split("_png/")[1].split(".png")[0])) {
         console.log("match!")
+        if (sculpture.height>maxHeight) {
+          maxHeight = sculpture.height;
+        }
+        console.log(maxHeight);
         compareArray.push(sculpture)
         console.log(compareArray)
       }
@@ -251,13 +258,25 @@ function addToCompareArray(img) {
   }
 }
 
+// https://stackoverflow.com/questions/48802987/is-there-a-map-function-in-vanilla-javascript-like-p5-js
+// linearly maps value from the range (a..b) to (c..d)
+function mapRange (value, a, b, c, d) {
+    // first map value from (a..b) to (0..1)
+    value = (value - a) / (b - a);
+    // then map it from (0..1) to (c..d) and return it
+    return c + value * (d - c);
+}
+
 function renderCompareImage(sculpture, alt) {
   var imgDiv = document.createElement("div")
   imgDiv.className = "compare-img-div"
   var img = document.createElement("img");
   img.className = "compare-image-img"
   img.src = `resized_clipped_tranparent_png/${sculpture.fileName.split('.')[0]}.png`;
-  img.style.height = sculpture.height * 2.5 + "px";
+  img.style.height = (sculpture.height/maxHeight) * 300 + "px";
+  console.log("height in px")
+  console.log(img.style.height)
+  // img.style.height = sculpture.height * 2.5 + "px";
   img.alt = alt;
   var removeIcon = document.createElement("img")
   removeIcon.className = "remove-icon"
@@ -272,14 +291,23 @@ function renderCompareImage(sculpture, alt) {
     removeIcon.style.visibility = 'hidden';
   })
   removeIcon.addEventListener('click', function() {
-    var src = this.parentNode.querySelector(".compare-image-img").getAttribute("src")
-    console.log(src)
-    var container = this.parentNode;
-    var parent = container.parentNode;
-    parent.removeChild(container);
-    removeFromCompareArray(src)
-  });
+      var src = this.parentNode.querySelector(".compare-image-img").getAttribute("src")
+      console.log(src)
+      var container = this.parentNode;
+      var parent = container.parentNode;
+      parent.removeChild(container);
+
+      var existingDiv = document.querySelector(".compare-const")
+      if  (existingDiv) {
+        existingDiv.parentElement.removeChild(existingDiv);
+      };
+
+      removeFromCompareArray(src);
+      checkMaxHeight(src);
+      renderEachCompareImage();
+    });
 }
+
 var compareImagesContainer = document.querySelector("#compare-images")
 
 function renderEachCompareImage() {
@@ -287,14 +315,73 @@ function renderEachCompareImage() {
   if (div.length > 0) {
     // console.log("div exists")
     // removeElementsBySelector("")
-    console.log(div)
+    // console.log(div)
     removeElementsBySelector(".compare-img-div")
     // div.parentNode.removeChild(div)
   };
   for (var i = 0; i < compareArray.length; i++) {
     renderCompareImage(compareArray[i], i, compareImagesContainer);
   }
+  renderCompareConstant()
 }
+
+function renderCompareConstant() {
+  if (compareArray.length>0) {
+
+    var consts = [
+      {name: "rice", height:1.4},
+      {name: "tack", height:2.5},
+      {name: "key", height:6},
+      {name: "apple", height:13},
+      {name: "basketball", height:25},
+      {name: "dog", height:75},
+      {name: "human", height:170},
+      {name: "bus", height:390}
+    ]
+
+    console.log(consts)
+
+    for (var i=0; i<consts.length; i++) {
+      if (maxHeight >= consts[i].height && maxHeight < consts[i+1].height) {
+
+        var existingDiv = document.querySelector(".compare-const")
+        if  (existingDiv) {
+          existingDiv.parentElement.removeChild(existingDiv);
+        };
+
+        var imgDiv = document.createElement("div");
+        imgDiv.style.height = (consts[i].height/maxHeight) * 300 + "px";
+        imgDiv.className = "compare-const"
+
+        var img = document.createElement("img");
+        img.id = "compare-constant"
+        console.log("const compare info")
+        console.log(maxHeight, consts[i].height)
+        img.src = `images/compare-constants/${consts[i].name}-01.png`;
+        img.style.height = "100%";
+        img.style.width = "auto";
+
+        imgDiv.appendChild(img)
+        compareImagesContainer.appendChild(imgDiv);
+      }
+    }
+  }
+}
+
+function checkMaxHeight(src) {
+  var heights = [];
+  for (const x of compareArray) {
+    if (x.fileName.match(src.split("_png/")[1].split(".png")[0]) == null) {
+      heights.push(x.height)
+    }
+  }
+  var largest = Math.max(...heights)
+  console.log(`heights: ${heights}`)
+  console.log(`largest: ${largest}`)
+  if (largest < maxHeight) {
+    maxHeight = largest;
+  }
+};
 
 function removeElementsBySelector(selector) {
   // Removes an element from the document

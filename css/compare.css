@@ -174,7 +174,7 @@
 #compare-images {
     width: 100%;
     margin-top: 30px;
-    min-height: 350px;
+    height: 400px;
     background-color: #2E2E2E;
     border-radius: 8px;
     margin-left: 10px;
@@ -185,17 +185,24 @@
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: flex-end;
-    justify-content: center;
 }
 
 .compare-img-div {
     display: inline-block;
     position: relative;
     padding: 50px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .compare-image-img {
     vertical-align: bottom;
+}
+
+.compare-const {
+  margin-bottom: 50px;
+  margin-right: 100px;
+  margin-left: 30px;
 }
 
 .remove-icon {
