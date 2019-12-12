@@ -25,27 +25,6 @@ for (var x = 0; x < tickText.length; x++) {
 }
 
 
-// function myFunction(x) {
-//   if (x.matches) { // If media query matches
-//     setTimeout(() => {
-//       $('img.sculpture-img').each(function() {
-//         $(this).blowup({
-//           "width": 0,
-//           "height": 0,
-//           "cursor": false,
-//           "border": "0px solid #C7875F"
-//         });
-//       })
-//     }, 2000)
-//   }
-//   else {
-//     addBlowup()
-//     }
-//   }
-// var x = window.matchMedia("(max-width: 990px)")
-// myFunction(x) // Call listener function at run time
-// x.addListener(myFunction) // Attach listener function on state changes
-
 var imageArray = [];
 var imagesArray = [];
 d3.json("finalClippedFileAndHeight.json").then(images => {
@@ -209,7 +188,8 @@ function addBlowup() {
         "width": 300,
         "height": 300,
         "cursor": false,
-        "border": "4px solid #C7875F"
+        "border": "4px solid #C7875F",
+        "zIndex": 9999999999
       });
     })
   }, 2000)
