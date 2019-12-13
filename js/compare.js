@@ -237,17 +237,28 @@ var maxHeight = 0;
 function addToCompareArray(img) {
   if (compareArray.length < 3) {
     console.log("space available")
-    imagesArray.forEach(sculpture => {
-      if (sculpture.fileName.match(img.src.split("_png/")[1].split(".png")[0])) {
-        console.log("match!")
-        if (sculpture.height>maxHeight) {
-          maxHeight = sculpture.height;
-        }
-        console.log(maxHeight);
-        compareArray.push(sculpture)
-        console.log(compareArray)
+
+    var alreadySelected = false;
+
+    for (var x=0; x<compareArray.length; x++) {
+      if (compareArray[x].fileName.match(img.src.split("_png/")[1].split(".png")[0])) {
+        alreadySelected = true;
       }
-    })
+    }
+
+    if (alreadySelected == false) {
+      imagesArray.forEach(sculpture => {
+        if (sculpture.fileName.match(img.src.split("_png/")[1].split(".png")[0])) {
+          console.log("match!")
+          if (sculpture.height>maxHeight) {
+            maxHeight = sculpture.height;
+          }
+          console.log(maxHeight);
+          compareArray.push(sculpture)
+          console.log(compareArray)
+        }
+      })
+    }
   }
   else {
     var container = document.querySelector(".alert-container")
