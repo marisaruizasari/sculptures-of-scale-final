@@ -35,55 +35,75 @@
             This visualization was created as part of the Masters in Data Visualization Major Studio 1 course at Parsons School of Design. Data and images are sourced from the Met API. Over the course of the Fall 2019 semester, I worked with the Met's open access data to explore the concept of scale in virtual space. The visualizations focus on sculptures of human subjects, and explore various ways of depicting relative scale. The semester was broken into four units: 1. Quantitative Data, 2. Qualitative data, 3. Interactivity, and 4. New Contexts.
             </p>
           </div>
-          <div class="col-sm">
+          <div class="col-sm rpad-none">
             <img src="images/DP108189.png" height="400px" class="intro-image" alt="sculpture">
           </div>
         </div>
         <div class="col-sm">
-          <h3>1. Quantitative Visualization: Gender and Height in the Met's Online Sculpture Collection</h3> <br>
+          <h3>1. Quantitative Visualization: Gender and Height</h3> <br><br>
+          <p>Here I plotted sculpture height vs year of creation, separating scuptures by gender tag. This visualization revealed that the tallest sculptures in the online collection were tagged as male, and that the oldest sculputres tend to be smaller than those more recently created.</p> <br>
+          <h6>Visualization Screenshots</h6>
           <img src="images/documentation/quant-1.png" class="shadow" alt="bar graph gif" width = "100%">
         </div>
         <div class="col-sm">
           <img src="images/documentation/quant-1-hover.png" class="shadow" alt="bar graph gif" width = "100%">
         </div>
         <div class="col-sm">
-            <h3>2. Qualitative Visualization: Sculptures of Scale Iteration One</h3> <br>
+            <h3>2. Qualitative Visualization: Sculptures of Scale Iteration One</h3> <br><br>
+            <p>For the first iteration of Sculptures of Scale, I divided the sculptures into three categories: small, medium, and large. The visualization allows users to loop through each category, with the primary view being unscaled (the width of sculpture images held constant). The second scaled view allows user to compare the relative heights of the sculptures.</p> <br>
+            <h6>Iteration one mockup</h6>
           <img src="images/documentation/quant-sketch.png" class="shadow" alt="bar graph gif" width = "100%">
         </div>
         <div class="col-sm">
-          <h3>3. Interactivity: Sculptures of Scale Iteration Two</h3> <br>
-          <img src="images/documentation/interactive-mockup-01.png" class="shadow" alt="bar graph gif" width = "100%">
-        </div>
-        <div class="col-sm">
+          <h6>Iteration one visualization</h6>
           <iframe src="https://player.vimeo.com/video/379395349" width="640" height="328" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
         <div class="col-sm">
-          <h3>4. New Contexts: Sculptures of Scale Final</h3> <br>
+          <h3>3. Interactivity: Sculptures of Scale Iteration Two</h3> <br><br>
+          <p>For the second iteration of Sculptures of Scale, I wanted to combine both quantitative and qualitative visualization methods. I started with an interactive bar chart created in D3, with a range slider for filtering sculpture height using the d3-simple-slider library. In this version of the visualization, users can click on the individual bars to view images of sculptures within their selected height range and material. Users can then select up to three sculptures to compare relative heights.</p> <br>
+
+          <h6>Iteration two mockup</h6>
+          <img src="images/documentation/interactive-mockup-01.png" class="shadow" alt="bar graph gif" width = "100%">
+        </div>
+        <div class="col-sm">
+          <h6>Iteration two visualization</h6>
+          <iframe src="https://player.vimeo.com/video/379395339" width="640" height="328" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+        <div class="col-sm">
+          <h3>4. New Contexts: Sculptures of Scale Final</h3> <br><br>
+          <p>In the final iteration of Sculptures of Scale, I expanded upon the interactive unit to create a full website for multiple visualizations and exploratory tools. Here I decided to break up the interactivity into three separate components: 1. Quantitative insights, 2. All sculpture images filtered by height and material, and 3. Relative height comparison filtered by height and material. <br><br> While I was happy about the layered interactivity in the prior iterations, I decided that separating out the visualization into three components would simplify the user experience and allow for additional unguided exploration of the online collection using the available filters. Here I wanted users to be able to find their own insights and to think more about the idea of relative scale. The final focus here was adding a new way of scaling in the sculptures, and adding a constant object for comparison. For this component, users can select up to three sculptures for comparison, and each time a new sculpture is selected, all selected sculputres resale in relation to the largest sculpture in the selection. I also added a constant object for comparison based on the height of the tallest selected sculpture. For example, sculptures between 2.5-6 cm are compared to the height of a thumbtack, while sculptures between 25-75 cm are compared to a basketball.</p> <br><br>
+
+          <h6>Final Mockup 1</h6>
           <img src="images/documentation/mockup-dark-04.png" class="shadow" alt="bar graph gif" width = "100%">
         </div>
         <div class="col-sm">
+          <h6>Final Insights Page</h6>
           <img src="images/documentation/range-bar.gif" class="shadow" alt="bar graph gif" width = "100%">
         </div>
         <div class="col-sm">
+          <h6>Final Images Page</h6>
           <img src="images/documentation/images.gif" class="shadow" alt="bar graph gif" width = "100%">
         </div>
         <div class="col-sm">
+          <h6>Final Compare Page</h6>
           <img src="images/documentation/compare.gif" class="shadow" alt="bar graph gif" width = "100%">
         </div>
         <div class="col-sm">
+          <h6>Final site walk through</h6>
           <iframe src="https://player.vimeo.com/video/379395400" width="640" height="331" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
         <div class="col-sm">
-          <h3>4. New Contexts: Sculptures of Scale Iteration Mobile Version</h3> <br>
+          <h3>4. New Contexts: Sculptures of Scale Iteration Mobile Version</h3> <br><br>
+          <p>In addition to the updated website, I added responsive mobile features that allow users to explore the site on a mobile or iPad device.</p> <br><br>
+
+          <h6>Mobile screenshots</h6>
           <img src="images/documentation/mobile-overview.png" class="shadow" alt="bar graph gif" width = "100%">
         </div>
           <div class="col-sm">
+            <h6>Mobile site walkthrough</h6>
             <iframe src="https://player.vimeo.com/video/379395301"  width="400" height="800" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
           </div>
         <div class="row">
-          <div class="col-sm">
-            <iframe src="https://player.vimeo.com/video/379395339" width="640" height="328" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-          </div>
         </div>
         <div class="col-sm">
           <a href="https://github.com/marisaruizasari/sculptures-of-scale-final" class="btn btn-outline-dark" target="_blank" role="button">View on GitHub</a>

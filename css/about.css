@@ -90,11 +90,17 @@
 
 
 .intro-image {
-  padding-left: 70px;
+  padding-left: 50px;
+  padding-right: 0;
+  margin-right: -45px;
+}
+
+.rpad-none {
+  padding-right: 0;
 }
 
 h3 {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 700;
-  font-size: 22px; 
+  font-size: 22px;
 }
