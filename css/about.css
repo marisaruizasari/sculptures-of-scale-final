@@ -108,3 +108,9 @@ h3 {
 .name-link {
   color: #BD5132;
 }
+
+.it {
+ font-family: 'Noto Sans', sans-serif !important;
+ font-size: 12px !important;
+ color: grey;
+}
